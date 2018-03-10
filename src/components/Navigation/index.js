@@ -10,7 +10,7 @@ export default function Navigation(props) {
     return (
       <Toolbar style={style}>
         <ToolbarGroup>
-          <ToolbarTitle text="RAX Challenge" />
+          <ToolbarTitle text="RAX CHALLENGE" />
             <FontIcon className="muidocs-icon-custom-sort" />
             <ToolbarSeparator />
         </ToolbarGroup>

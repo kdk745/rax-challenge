@@ -10,6 +10,6 @@ function posts(state = [], action) {
   return state;
 }
 
-export default combineReducers( {
+export default combineReducers({
   posts
 });

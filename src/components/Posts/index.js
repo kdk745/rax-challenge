@@ -57,22 +57,23 @@ export default class TableExampleControlled extends Component {
             >
               <TableRow>
                 <TableHeaderColumn width={1}>
-                  {<div onClick={()=>{this.CallSort(this.props.posts, "ID")}}>ID</div>}
+                  {<div onClick={()=>this.CallSort(this.props.posts, "ID")}>ID</div>}
                 </TableHeaderColumn>
                 <TableHeaderColumn width={1}>
-                  {<div onClick={()=>{this.CallSort(this.props.posts, "User ID")}}>User ID</div>}
+                  {<div onClick={()=>this.CallSort(this.props.posts, "User ID")}>User ID</div>}
                 </TableHeaderColumn>
                 <TableHeaderColumn>
-                  {<div onClick={()=>{this.CallSort(this.props.posts, "Title")}}>Title</div>}
+                  {<div onClick={()=>this.CallSort(this.props.posts, "Title")}>Title</div>}
                 </TableHeaderColumn>
                 <TableHeaderColumn>
-                  {<div onClick={()=>{this.CallSort(this.props.posts, "Body")}}>Body</div>}
+                  {<div onClick={()=>this.CallSort(this.props.posts, "Body")}>Body</div>}
                 </TableHeaderColumn>
               </TableRow>
             </TableHeader>
             <TableBody
               displayRowCheckbox={false}
               deselectOnClickaway={false}
+              stripedRows={true}
             >
               {this.Rows()}
             </TableBody>

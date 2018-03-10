@@ -1,3 +1,5 @@
+
+// will attempt to load posts when app loads
 export function postsLoad() {
   return (dispatch) => {
     // request triggers Loading of the posts
@@ -5,6 +7,7 @@ export function postsLoad() {
       .then((response) => {
         return response.json();
       }).then((response) => {
+        // if response is successful, load the posts to the app
         dispatch(postsLoadSuccess(response));
       }).catch(() => {
         dispatch(postsLoadError('could not load posts'))
@@ -26,8 +29,9 @@ export function postsLoadError(err) {
   };
 }
 
-function sortUserId(first, other) {
-  const idA = first.userId;
+// sort on user id column
+function sortUserId(self, other) {
+  const idA = self.userId;
   const idB = other.userId;
 
   let compare = 0;
@@ -40,8 +44,9 @@ function sortUserId(first, other) {
   return compare;
 }
 
-function sortId(first, other) {
-  const idA = first.id;
+// sort on id column
+function sortId(self, other) {
+  const idA = self.id;
   const idB = other.id;
 
   let compare = 0;
@@ -54,8 +59,9 @@ function sortId(first, other) {
   return compare;
 }
 
-function sortTitle(first, other) {
-  const titleA = first.title.toUpperCase();
+// sort on title column
+function sortTitle(self, other) {
+  const titleA = self.title.toUpperCase();
   const titleB = other.title.toUpperCase();
 
   let compare = 0;
@@ -67,8 +73,9 @@ function sortTitle(first, other) {
   return compare;
 }
 
-function sortBody(first, other) {
-  const bodyA = first.body.toUpperCase();
+// sort on body column
+function sortBody(self, other) {
+  const bodyA = self.body.toUpperCase();
   const bodyB = other.body.toUpperCase();
 
   let compare = 0;
@@ -80,6 +87,8 @@ function sortBody(first, other) {
   return compare;
 }
 
+/* action to sort posts
+will call corresponding sort function based on type */
 export function sortPosts(data, type) {
   switch(type) {
     case "User ID":
